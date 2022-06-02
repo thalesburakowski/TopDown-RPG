@@ -6,6 +6,8 @@ public class Tree : MonoBehaviour
 {
     [SerializeField] private float health;
     [SerializeField] private Animator animator;
+    [SerializeField] private GameObject woodPrefab;
+    [SerializeField] private int totalWood;
     void Start()
     {
 
@@ -23,6 +25,10 @@ public class Tree : MonoBehaviour
         animator.SetTrigger("isHit");
         if (health <= 0)
         {
+            for (int i = 0; i < totalWood; i++)
+            {
+                Instantiate(woodPrefab, transform.position + new Vector3(Random.Range(-1.5f, 0.5f), Random.Range(-1.5f, 0.5f), 0f), transform.rotation);
+            }
             animator.SetTrigger("cut");
         }
     }
@@ -33,5 +39,6 @@ public class Tree : MonoBehaviour
         {
             OnHit();
         }
+
     }
 }

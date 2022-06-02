@@ -36,13 +36,15 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Craft\Tree.cs" />
      <Compile Include="Assets\Scripts\Dialogue\DialogueSettings.cs" />
      <Compile Include="Assets\Scripts\NPC\NPC.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\Dialogue\DialogueControl.cs" />
      <Compile Include="Assets\Scripts\PlayerAnimation.cs" />
      <Compile Include="Assets\Scripts\NPC\NPC_Dialogue.cs" />
-     <Compile Include="Assets\Scripts\Craft\Tree.cs" />
+     <Compile Include="Assets\Scripts\Drops\Wood.cs" />
+     <Compile Include="Assets\Scripts\PlayerInventory.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
