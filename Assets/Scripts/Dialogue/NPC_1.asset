@@ -19,6 +19,12 @@ MonoBehaviour:
   - actorName: 
     profile: {fileID: -1031788814, guid: e972ac3da2cb8cc488a702f96dd0b207, type: 3}
     languages:
-      portuguese: Teste brabo
-      english: 
+      portuguese: doidera ne
+      english: 'eng: mt doidio'
+      spanish: 
+  - actorName: 
+    profile: {fileID: -1031788814, guid: e972ac3da2cb8cc488a702f96dd0b207, type: 3}
+    languages:
+      portuguese: mt doido mesmo
+      english: 'eng: doidera'
       spanish: 

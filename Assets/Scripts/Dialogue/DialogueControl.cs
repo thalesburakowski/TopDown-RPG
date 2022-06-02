@@ -7,6 +7,11 @@ using TMPro;
 public class DialogueControl : MonoBehaviour
 {
 
+    [System.Serializable]
+    public enum idiomes { portuguese, english, spanish };
+
+    public idiomes language;
+
     [Header("Components")]
     public GameObject dialogueWindow;
     public Image profileSprite;
@@ -15,12 +20,15 @@ public class DialogueControl : MonoBehaviour
 
     [Header("Settings")]
     public float typingSpeed;
-    private bool isOpen;
+    public bool isOpen;
     private int index;
+
+    private string[] sentences;
 
     public static DialogueControl instance;
 
-    private void Awake() {
+    private void Awake()
+    {
         instance = this;
     }
 
@@ -46,21 +54,29 @@ public class DialogueControl : MonoBehaviour
 
     public void NextSentence()
     {
-
+        dialogue.text = "";
+        if (index < sentences.Length - 1)
+        {
+            index++;
+            StartCoroutine(TypeSentence(sentences[index]));
+        }
+        else
+        {
+            index = 0;
+            dialogueWindow.SetActive(false);
+            sentences = null;
+            isOpen = false;
+        }
     }
 
-    public void Speech(string[] text)
+    public void Speech(string[] dialogues)
     {
         if (!isOpen)
         {
             dialogueWindow.SetActive(true);
-            StartCoroutine(TypeSentence(text[index]));
+            sentences = dialogues;
+            StartCoroutine(TypeSentence(sentences[index]));
             isOpen = true;
-        }
-        else
-        {
-            dialogueWindow.SetActive(false);
-            isOpen = false;
         }
     }
 }

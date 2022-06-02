@@ -29,7 +29,21 @@ public class NPC_Dialogue : MonoBehaviour
     {
         for (var i = 0; i < dialogue.dialogues.Count; i++)
         {
-            sentences.Add(dialogue.dialogues[i].languages.portuguese);
+            switch (DialogueControl.instance.language)
+            {
+                case DialogueControl.idiomes.portuguese:
+                    sentences.Add(dialogue.dialogues[i].languages.portuguese);
+                    break;
+                case DialogueControl.idiomes.english:
+                    sentences.Add(dialogue.dialogues[i].languages.english);
+                    break;
+                case DialogueControl.idiomes.spanish:
+                    sentences.Add(dialogue.dialogues[i].languages.spanish);
+                    break;
+                default:
+                    break;
+            }
+            
         }
     }
 
@@ -48,7 +62,6 @@ public class NPC_Dialogue : MonoBehaviour
         else
         {
             nextToNpc = false;
-            DialogueControl.instance.dialogueWindow.SetActive(false);
         }
     }
 

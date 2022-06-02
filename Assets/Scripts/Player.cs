@@ -13,6 +13,12 @@ public class Player : MonoBehaviour
     {
         get { return _isRunning; }
     }
+    
+    private bool _isCutting;
+    public bool isCutting
+    {
+        get { return _isCutting; }
+    }
 
     [SerializeField] private bool _isRolling;
     public bool isRolling
@@ -38,6 +44,7 @@ public class Player : MonoBehaviour
         OnInput();
         OnRun();
         OnRolling();
+        OnCutting();
     }
 
     private void FixedUpdate()
@@ -82,6 +89,19 @@ public class Player : MonoBehaviour
         if (Input.GetMouseButtonUp(1))
         {
             _isRolling = false;
+            speed = initialSpeed;
+        }
+    }
+
+    void OnCutting() {
+        if (Input.GetMouseButtonDown(0))
+        {
+            _isCutting = true;
+            speed = 0f;
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            _isCutting = false;
             speed = initialSpeed;
         }
     }
